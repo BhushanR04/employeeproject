@@ -1,0 +1,74 @@
+﻿@model IEnumerable<employeeproject.Models.Useremp>
+
+@{
+    ViewData["Title"] = "Indexer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Indexer</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Utype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HiredDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HiredDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                <a asp-controller="Useremp" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>  |
+                <a asp-controller="Useremp" asp-action="Details" asp-route-Id="@item.Id">Details</a> |
+                <a asp-controller="Useremp" asp-action="Delete" asp-route-Id="@item.Id">Delete</a> |
+                <a asp-controller="Useremp" asp-action="ChangePw" asp-route-Id="@item.Id">Change Password</a> |
+                <a asp-controller="Useremp" asp-action="Logout" asp-route-Id="@item.Id">Logout</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
